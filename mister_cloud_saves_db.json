@@ -15,6 +15,7 @@
             "size": 2752268,
             "hash": "37b51e8d697e230bde6d8ed5fda9bd00",
             "url": "https://github.com/bleach86/mister_cloud_saves/releases/download/v1.2.1/client.tar.xz",
+            "reboot": true,
             "tags": [
                 0
             ]
