@@ -122,6 +122,7 @@ def get_update_db_schema():
                 "size": 0,
                 "hash": "",
                 "url": "",
+                "reboot": True,
                 "tags": [0],
             },
         },
