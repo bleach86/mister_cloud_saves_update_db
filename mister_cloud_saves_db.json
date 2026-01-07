@@ -1,14 +1,22 @@
 {
     "v": 1,
     "db_id": "mister_cloud_saves",
-    "timestamp": 1767818412,
+    "timestamp": 1767823867,
     "files": {
         "Scripts/cloud_saves.sh": {
-            "size": 12232,
-            "hash": "3c2b84d40491db14f8ed84e243458c5d",
+            "size": 16828,
+            "hash": "1c45f697a746624bbeb817db6f5b7353",
             "url": "https://raw.githubusercontent.com/bleach86/mister_cloud_saves/refs/heads/main/scripts/cloud_saves.sh",
             "tags": [
                 1
+            ]
+        },
+        "cloud_saves/cloud_saves_launcher.sh": {
+            "size": 2315,
+            "hash": "70276b02d5025bf694aa8de85c6003fc",
+            "url": "https://raw.githubusercontent.com/bleach86/mister_cloud_saves/refs/heads/main/scripts/cloud_saves_launcher.sh",
+            "tags": [
+                0
             ]
         },
         "cloud_saves/updates/client.tar.xz": {
