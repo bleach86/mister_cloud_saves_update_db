@@ -29,7 +29,11 @@ import requests  # type: ignore
 GH_REPO_API_URL = (
     "https://api.github.com/repos/bleach86/mister_cloud_saves/releases/latest"
 )
-SCRIPT_RAW_URL = "https://raw.githubusercontent.com/bleach86/mister_cloud_saves/refs/heads/main/scripts/cloud_saves.sh"
+RAW_URL_BASE = (
+    "https://raw.githubusercontent.com/bleach86/mister_cloud_saves/refs/heads/main"
+)
+SCRIPT_RAW_URL = f"{RAW_URL_BASE}/scripts/cloud_saves.sh"
+LAUNCHER_SCRIPT_URL = f"{RAW_URL_BASE}/scripts/cloud_saves_launcher.sh"
 UPDATE_DB_FILE = "mister_cloud_saves_db.json"
 
 
@@ -113,6 +117,20 @@ def generate_update_db():
     update_db["files"]["Scripts/cloud_saves.sh"]["hash"] = script_hash
     update_db["files"]["Scripts/cloud_saves.sh"]["url"] = SCRIPT_RAW_URL
 
+    # Update launcher script file info
+    launcher_script_size, launcher_script_hash = get_file_hash_and_size(
+        LAUNCHER_SCRIPT_URL
+    )
+    update_db["files"]["cloud_saves/cloud_saves_launcher.sh"][
+        "size"
+    ] = launcher_script_size
+    update_db["files"]["cloud_saves/cloud_saves_launcher.sh"][
+        "hash"
+    ] = launcher_script_hash
+    update_db["files"]["cloud_saves/cloud_saves_launcher.sh"][
+        "url"
+    ] = LAUNCHER_SCRIPT_URL
+
     # Update client file info
     client_size, client_hash = get_file_hash_and_size(client_download_url)
     update_db["files"]["cloud_saves/updates/client.tar.xz"]["size"] = client_size
@@ -135,6 +153,12 @@ def get_update_db_schema():
                 "hash": "",
                 "url": "",
                 "tags": [1],
+            },
+            "cloud_saves/cloud_saves_launcher.sh": {
+                "size": 0,
+                "hash": "",
+                "url": "",
+                "tags": [0],
             },
             "cloud_saves/updates/client.tar.xz": {
                 "size": 0,
