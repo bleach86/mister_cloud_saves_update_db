@@ -108,9 +108,6 @@ def generate_update_db():
 
     client_download_url, _ = get_tag_and_latest_release_url()
 
-    # Update timestamp
-    update_db["timestamp"] = int(time.time())
-
     # Update script file info
     script_size, script_hash = get_file_hash_and_size(SCRIPT_RAW_URL)
     update_db["files"]["Scripts/cloud_saves.sh"]["size"] = script_size
@@ -183,9 +180,16 @@ def save_update_db_to_file_if_changed(update_db, file_path):
     if os.path.exists(file_path):
         with open(file_path, "r", encoding="utf-8") as f:
             existing_db = json.load(f)
+
+        # Ignore timestamp for comparison
+        existing_db["timestamp"] = 0
+
         if existing_db == update_db:
             print("No changes detected in the update database.")
             return
+
+    # Update timestamp
+    update_db["timestamp"] = int(time.time())
 
     with open(file_path, "w", encoding="utf-8") as f:
         json.dump(update_db, f, indent=4)
