@@ -1,11 +1,11 @@
 {
     "v": 1,
     "db_id": "mister_cloud_saves",
-    "timestamp": 1767840358,
+    "timestamp": 1767892183,
     "files": {
         "Scripts/cloud_saves.sh": {
-            "size": 16828,
-            "hash": "1c45f697a746624bbeb817db6f5b7353",
+            "size": 17473,
+            "hash": "02d28063dbba254b459155a942772a39",
             "url": "https://raw.githubusercontent.com/bleach86/mister_cloud_saves/refs/heads/main/scripts/cloud_saves.sh",
             "tags": [
                 1
